@@ -56,49 +56,50 @@ class LoginScreen extends StatelessWidget {
       logoTag: Constants.logoTag,
       titleTag: Constants.titleTag,
       navigateBackAfterRecovery: true,
-      onConfirmRecover: _signupConfirm,
-      onConfirmSignup: _signupConfirm,
-      loginAfterSignUp: false,
-      loginProviders: [
-        LoginProvider(
-          button: Buttons.linkedIn,
-          label: 'Sign in with LinkedIn',
-          callback: () async {
-            return null;
-          },
-          providerNeedsSignUpCallback: () {
-            // put here your logic to conditionally show the additional fields
-            return Future.value(true);
-          },
-        ),
-        LoginProvider(
-          icon: FontAwesomeIcons.google,
-          label: 'Google',
-          callback: () async {
-            return null;
-          },
-        ),
-        LoginProvider(
-          icon: FontAwesomeIcons.githubAlt,
-          callback: () async {
-            debugPrint('start github sign in');
-            await Future.delayed(loginTime);
-            debugPrint('stop github sign in');
-            return null;
-          },
-        ),
-      ],
-      termsOfService: [
-        TermOfService(
-            id: 'newsletter',
-            mandatory: false,
-            text: 'Newsletter subscription'),
-        TermOfService(
-            id: 'general-term',
-            mandatory: true,
-            text: 'Term of services',
-            linkUrl: 'https://github.com/NearHuscarl/flutter_login'),
-      ],
+      // onConfirmRecover: _signupConfirm,
+      // onConfirmSignup: _signupConfirm,
+      loginAfterSignUp: true,
+      userType: LoginUserType.id,
+      // loginProviders: [
+      //   LoginProvider(
+      //     button: Buttons.linkedIn,
+      //     label: 'Sign in with LinkedIn',
+      //     callback: () async {
+      //       return null;
+      //     },
+      //     providerNeedsSignUpCallback: () {
+      //       // put here your logic to conditionally show the additional fields
+      //       return Future.value(true);
+      //     },
+      //   ),
+      //   LoginProvider(
+      //     icon: FontAwesomeIcons.google,
+      //     label: 'Google',
+      //     callback: () async {
+      //       return null;
+      //     },
+      //   ),
+      //   LoginProvider(
+      //     icon: FontAwesomeIcons.githubAlt,
+      //     callback: () async {
+      //       debugPrint('start github sign in');
+      //       await Future.delayed(loginTime);
+      //       debugPrint('stop github sign in');
+      //       return null;
+      //     },
+      //   ),
+      // ],
+      // termsOfService: [
+      //   TermOfService(
+      //       id: 'newsletter',
+      //       mandatory: false,
+      //       text: 'Newsletter subscription'),
+      //   TermOfService(
+      //       id: 'general-term',
+      //       mandatory: true,
+      //       text: 'Term of services',
+      //       linkUrl: 'https://github.com/NearHuscarl/flutter_login'),
+      // ],
       additionalSignupFields: [
         const UserFormField(
             keyName: 'Username', icon: Icon(FontAwesomeIcons.userLarge)),
@@ -120,7 +121,7 @@ class LoginScreen extends StatelessWidget {
           },
         ),
       ],
-      initialAuthMode: AuthMode.login,
+      initialAuthMode: AuthMode.signup,
       // scrollable: true,
       // hideProvidersTitle: false,
       // loginAfterSignUp: false,

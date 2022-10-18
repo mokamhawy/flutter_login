@@ -5,6 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class TextFieldUtils {
   static String getAutofillHints(LoginUserType userType) {
     switch (userType) {
+      case LoginUserType.id:
+        return AutofillHints.name;
       case LoginUserType.name:
         return AutofillHints.username;
       case LoginUserType.phone:
@@ -17,6 +19,8 @@ class TextFieldUtils {
 
   static TextInputType getKeyboardType(LoginUserType userType) {
     switch (userType) {
+      case LoginUserType.id:
+        return TextInputType.number;
       case LoginUserType.name:
         return TextInputType.name;
       case LoginUserType.phone:
@@ -29,6 +33,8 @@ class TextFieldUtils {
 
   static Icon getPrefixIcon(LoginUserType userType) {
     switch (userType) {
+      case LoginUserType.id:
+        return const Icon(FontAwesomeIcons.solidIdBadge);
       case LoginUserType.name:
         return const Icon(FontAwesomeIcons.circleUser);
       case LoginUserType.phone:
@@ -41,6 +47,8 @@ class TextFieldUtils {
 
   static String getLabelText(LoginUserType userType) {
     switch (userType) {
+      case LoginUserType.id:
+        return "Employee No.";
       case LoginUserType.name:
         return "Name";
       case LoginUserType.phone:
